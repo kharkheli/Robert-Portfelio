@@ -152,6 +152,7 @@ function Calculate({ empNum, setEmpNum, opService }) {
                   {services.map((ser, index) => {
                     return (
                       <span
+                        key={index}
                         className="option"
                         onClick={() => {
                           setService(ser)

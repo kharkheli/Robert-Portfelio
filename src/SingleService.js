@@ -31,9 +31,12 @@ const SingleService = ({ id, img, desc, hidden, name, list }) => {
             ''
           )}
           {list
-            ? list.map((li) => {
+            ? list.map((li, index) => {
                 return (
-                  <li style={{ fontSize: '1.5rem', width: 'max-content' }}>
+                  <li
+                    key={index}
+                    style={{ fontSize: '1.5rem', width: 'max-content' }}
+                  >
                     {li}
                   </li>
                 )
@@ -61,10 +64,10 @@ const SingleService = ({ id, img, desc, hidden, name, list }) => {
 const DisplayImg = ({ img, anim, imgRef }) => {
   return (
     <div className="service-image">
-      {img.map((photo) => {
+      {img.map((photo, index) => {
         if (photo.name == 'light') {
           return (
-            <span id="light">
+            <span key={index} id="light">
               <HiLightBulb
                 className={anim ? 'toggle-light' : ''}
                 style={{

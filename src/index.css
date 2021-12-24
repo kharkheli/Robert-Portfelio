@@ -795,7 +795,14 @@ select {
 #KONTAKT input {
   position: relative;
   z-index: 1;
-  border: 2px solid #2d2d2d;
+  /* border: 2px solid #2d2d2d; */
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #2d2d2d;
+}
+
+#KONTAKT input:focus {
+  border-bottom: 2px solid white;
 }
 
 textarea {
@@ -940,4 +947,22 @@ footer .cicon {
   line-height: 1.7;
   color: var(--info-color);
   text-shadow: 0px 0px 20px black;
+}
+
+.telephon {
+  position: fixed;
+  bottom: 0vw;
+  right: 0vw;
+  text-align: center;
+  background-color: var(--key-color-g);
+  color: black;
+  padding-top: 0.5vw;
+  border-radius: 10% 30% 90% 20%;
+  padding-left: 0.1vw;
+  text-decoration: none;
+  transform: scale(0.8);
+}
+
+.telephon:visited {
+  /* color: var(--key-color-b); */
 }

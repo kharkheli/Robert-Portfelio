@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { IoIosArrowDown } from 'react-icons/io'
+import { BsFillTelephoneFill } from 'react-icons/bs'
 import emailjs from 'emailjs-com'
 
 const Alert = ({ visib, text, cname }) => {
@@ -92,6 +93,25 @@ function Contact({ referal, empNum, service }) {
   return (
     <div className="contact-form">
       <h1>KONTAKT</h1>
+      <a
+        href="#telephon"
+        className="telephon"
+        onClick={() => setContactForm(true)}
+      >
+        <BsFillTelephoneFill style={{ fontSize: '3rem' }} />
+        <span
+          style={{
+            display: 'inline-block',
+            position: 'relative',
+            top: '-1.5vw',
+            left: '-1.3vw',
+            fontWeight: '1000',
+            fontSize: '1.3rem',
+          }}
+        >
+          Rückruf
+        </span>
+      </a>
       <form onSubmit={(e) => submitHandle(e)} ref={form}>
         <div className="email-form">
           <div className="visitor-info">
@@ -163,7 +183,8 @@ function Contact({ referal, empNum, service }) {
         <div className={`contact-details ${contactForm ? 'show-form' : ''}`}>
           <h2 className={mobileLabel ? 'label' : ''}>Telefonnummer</h2>
           <input
-            name="number"
+            id="telephon"
+            name="tel"
             style={reqNumber ? { border: '2px solid #0f76bb' } : {}}
             className="contact-info"
             type="number"
@@ -180,18 +201,18 @@ function Contact({ referal, empNum, service }) {
             text="Bitte Telefonnummer eingeben"
             cname="talert"
           />
-          <h2>Auswahl des Tages</h2>
+          <h2>Wählen Sie einen Tag</h2>
           <input
             className="contact-info"
             type="date"
             name="date"
             onChange={() => setRend(rend + 1)}
           />
-          <h2>Wählen Sie eine Zeit</h2>
+          <h2 style={{ marginTop: '1vw' }}>Wählen Sie eine Zeit</h2>
           <select
             name="time"
             onChange={() => setRend(rend + 1)}
-            style={{ border: '2px solid #2d2d2d' }}
+            style={{ border: 'none', borderBottom: '2px solid #2d2d2d' }}
           >
             <option value="16:00-16:30">16:00-16:30</option>
             <option value="16:30-17:00">16:30-17:00</option>
@@ -203,7 +224,12 @@ function Contact({ referal, empNum, service }) {
             <option value="19:30-20:00">19:00-20:00</option>
           </select>
         </div>
-        <input id="send" type="submit" value="Senden" />
+        <input
+          id="send"
+          type="submit"
+          value="Senden"
+          style={{ border: '2px solid #2d2d2d' }}
+        />
       </form>
     </div>
   )
